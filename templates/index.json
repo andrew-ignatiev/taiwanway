@@ -14,6 +14,10 @@
           }
         }
       },
+      "block_order": [
+        "heading",
+        "text"
+      ],
       "settings": {
       }
     },
