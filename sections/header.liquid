@@ -1,0 +1,68 @@
+<div class="container flex items-start justify-between md:items-center md:justify-end md:mt-6 mx-auto {% if section.settings.enable_sticky_header %}sticky-header{% endif %}" id="navigation">
+  <div class="cursor-pointer md:hidden p-5 w-24" onclick="taiwanway.menuDisplay(true)"> 
+    <img src="{{ 'tw_humburger.110a2d98.png' | asset_url }}" alt="menu" width="22" height="17">
+  </div>
+  <div class="md:hidden p-2.5">
+    <img src="{{ 'tw_logo-horizontal.639b07b3.png' | asset_url }}" alt="taiwanway" class="w-[118px]" width="236" height="112">
+  </div>
+  <div class="absolute bg-c3 flex flex-col hidden left-0 md:bg-inherit md:block md:mx-2.5 md:opacity-100 md:p-0 md:relative md:w-auto opacity-0 px-5 py-10 top-0 transition-opacity w-full" id="menu">
+    <img src="{{ 'tw_close_icon.36162d4e.svg' | asset_url }}" width="20" height="17" class="absolute cursor-pointer md:hidden right-5 top-5" onclick="taiwanway.menuDisplay(false)" alt="close icon">
+    {% if section.settings.menu != blank %}
+      {% for link in section.settings.menu.links %}
+        {% if link.url contains '#' %}
+          {% assign anchor = link.url | replace: "#", "" %}
+          <a href="{{ link.url }}" class="hover:text-c5 md:hover:text-c2 mx-2.5" onclick="taiwanway.scrollToElement('{{ anchor }}');taiwanway.menuDisplay(false)">
+            {{ link.title | escape }}
+          </a>
+        {% endif %}
+      {% endfor %}
+      {% if shop.published_locales.size > 0 %}
+        <span class="capitalize divide-c2 divide-solid divide-x mx-1.5">
+          {% for locale in shop.published_locales %}
+            {%- liquid
+              assign code = locale.iso_code | split: "-" | first
+              if code == "zh"
+                assign code = "ch"
+              endif
+            -%}
+            {% if request.locale.root_url == locale.root_url %}
+              <span class="inline-block leading-4 px-1 text-c1">{{ code | escape }}</span>
+            {% else %}
+              <a href="{{ locale.root_url }}" class="hover:text-c5 inline-block leading-4 md:hover:text-c2 px-1" title="{{ locale.name }}">
+                {{ code | escape }}
+              </a>
+            {% endif %}  
+          {% endfor %}
+        </span>
+      {% endif %}
+    {% endif %}
+  </div>
+  <div class="flex justify-end md:py-0 md:w-auto p-5 w-24">
+    {% if cart.item_count > 0 %}
+     <div class="align-middle bg-c1 flex h-4 justify-center leading-4 mr-1 mt-1 rounded-2xl text-sm text-white w-4"> {{ cart.item_count }} </div>
+    {% endif %}
+     <img src="{{ 'tw_shopping_bag_icon.4dd5873c.png' | asset_url }}" alt="basket" width="21" height="22"> 
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.header.name",
+  "class": "section-header",
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "menu",
+      "default": "main-menu",
+      "label": "t:sections.header.settings.menu.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_sticky_header",
+      "default": true,
+      "label": "t:sections.header.settings.enable_sticky_header.label",
+      "info": "t:sections.header.settings.enable_sticky_header.info"
+    }
+  ]
+}
+{% endschema %}

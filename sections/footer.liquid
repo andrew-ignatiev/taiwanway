@@ -1,0 +1,196 @@
+<div id="shipping" class="container lg:max-w-[876] mx-auto my-10 px-5">
+  <p class="font-medium text-c1 text-center uppercase">
+    now we deliver
+  </p>
+  <p class="font-medium lowercase my-5 text-4xl text-center">
+    Shipping and Pick up Availiable
+  </p>
+  <p class="text-center">
+    Estimated delivery times Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doeiusmod tempor
+  </p>
+  <div class="border border-c2 divide-c2 divide-y md:divide-x md:divide-y-0 md:flex mt-5">
+      <div class="flex items-center justify-between md:basis-1/2 px-5 py-3">
+          <div>
+            Delivery within Greater Vancouver area
+          </div>
+          <div class="font-medium pl-5">
+            $10
+          </div>
+      </div>
+      <div class="flex items-center justify-between md:basis-1/2 px-5 py-3">
+          <div>
+            Delivery within Greater Vancouver area for all orders over $100
+          </div>
+          <div class="font-medium pl-5">
+            free
+          </div>
+      </div>
+  </div>
+  <img src="{{ 'tw_shipping.60455f4e.jpg' | asset_url }}" width="877" height="584" class="mt-5 mx-auto w-full">
+</div>
+<div id="contact" class="container mx-auto my-10 p-5">
+  <p class="lowercase text-4xl text-center"
+    Contact Us
+  </p>
+  <p class="md:text-base text-center text-sm">
+    We are here to help and answer any questions you might have. We look forward to hearing from you! </p>
+  <div class="md:flex md:space-x-10 mt-5">
+      <div class="lg:basis-1/2 md:basis-2/3">
+          <p class="font-medium mb-3 md:text-base text-sm uppercase">
+            Drop Us a line!
+          </p>
+          <form>
+              <div class="border border-c2 divide-c2 divide-y flex flex-wrap">
+                  <fieldset class="basis-full p-5">
+                    <input type="text" name="name" placeholder="Your name" title="Your name" class="bg-transparent border-c2 outline-none w-full">
+                  </fieldset>
+                  <fieldset class="basis-full md:basis-1/2 md:border-r p-5">
+                    <input type="email" placeholder="Your email" title="Your email" name="email" class="bg-transparent border-c2 outline-none w-full">
+                  </fieldset>
+                  <fieldset class="basis-full md:basis-1/2 p-5">
+                    <input type="text" placeholder="Subject" title="Subject" name="subject" class="bg-transparent border-c2 outline-none w-full">
+                  </fieldset>
+                  <fieldset class="basis-full p-5">
+                    <textarea placeholder="Enter text here" title="Enter text here" type="text" name="text" class="bg-transparent border-c2 outline-none w-full"></textarea>
+                  </fieldset>
+              </div>
+              <button type="submit" class="bg-c3 block font-medium hover:bg-c4 ml-auto mr-0 mt-5 p-3 uppercase w-[168]">
+                send
+              </button>
+          </form>
+      </div>
+      <div
+          class="flex lg:basis-1/2 md:basis-1/3 md:block md:flex-wrap md:mt-0 md:space-x-0 md:text-base mt-10 space-x-5 text-sm">
+          <div class="basis-3/5 md:basis-full">
+              <p class="font-medium mb-2 uppercase">
+                Address
+              </p>
+              <p>
+                #1140 - 551 Sherling Pl. Port Coquitlam, BC V3B 0J6
+              </p>
+              <div class="flex items-center mt-2">
+                  <div>
+                    <img src="{{ 'tw_location_icon.f9ccd23e.png' | asset_url }}" width="22" height="32" class="mr-3 w-[11]">
+                  </div>
+                  <p class="text-c1">Pick up is availiable from this location</p>
+              </div>
+          </div>
+          <div class="basis-2/5 md:basis-full">
+              <p class="font-medium mb-2 md:mt-3 uppercase">
+                Phon
+              </p>
+              <p>
+                +1 778-917-5218
+              </p>
+              <p class="font-medium mb-2 mt-3 uppercase">
+                Email
+              </p>
+              <p>
+                info@taiwanway.ca
+              </p>
+          </div>
+      </div>
+  </div>
+</div>
+<div class="bg-c3 md:text-base mt-5 pb-5 pt-10 text-xs">
+  <div class="container mx-auto px-5">
+    <div class="flex">
+      <div class="basis-[42px] flex-shrink-0">
+        <img src="{{ 'tw_white_logo.b6c64964.svg' | asset_url }}" width="42" height="90" alt="logo">
+      </div>
+      <div class="basis-full md:flex md:items-center md:justify-between ml-5">
+        <div class="font-medium uppercase">
+          {{ section.settings.rtb }}
+        </div>
+        <div class="md:flex md:flex-col-reverse">
+          <div class="font-medium md:mr-5 md:text-right mt-5 uppercase">
+            {{ section.settings.followus }}
+            <a href="https://www.facebook.com/TaiwanWaymarket/" class="group ml-4">
+              <img class="group-hover:hidden inline" src="{{ 'tw_Facebook_black.ff310483.svg' | asset_url }}" width="7" height="15" alt="facebook">
+              <img class="group-hover:inline hidden" src="{{ 'tw_Facebook_white.5f207e56.svg' | asset_url }}" width="7" height="15" alt="facebook">
+            </a>
+            <a href="https://www.instagram.com/taiwanway.market/" class="group ml-4">
+              <img class="group-hover:hidden inline" src="{{ 'tw_Instagram_black.eff2ac5b.svg' | asset_url }}" width="17" height="17" alt="instagram">
+              <img class="group-hover:inline hidden" src="{{ 'tw_Instagram_white.0c1f4b9e.svg' | asset_url }}" width="17" height="17" alt="instagram">
+            </a>
+          </div>
+          {% if section.blocks.size > 0 %}
+            {% for block in section.blocks %}
+              {%- if block.type == 'link_list' and block.settings.menu != blank -%}
+                <div class="flex justify-center md:ml-0 md:mt-0 ml-[-42] mt-5">
+                {%- for link in block.settings.menu.links -%}
+                  {% if link.url contains '#' %}
+                    {% assign anchor = link.url | replace: "#", "" %}
+                    <a href="{{ link.url }}" class="hover:text-c5 mx-5" onclick="taiwanway.scrollToElement('{{ anchor }}')">
+                      {{ link.title | escape }}
+                    </a>
+                  {%- endif -%}
+                {%- endfor -%}
+                </div>
+              {%- endif -%}
+            {% endfor %}
+          {%- endif -%}
+        </div>
+      </div>  
+    </div>
+  </div>
+  {%- if section.settings.copyright != blank -%}
+    <div class="mt-5 text-center">
+      {{ section.settings.copyright }}
+    </div>
+  {%- endif -%}
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.footer.name",
+  "blocks": [
+    {
+      "type": "link_list",
+      "name": "t:sections.footer.blocks.link_list.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "default": "Quick links",
+          "label": "t:sections.footer.blocks.link_list.settings.heading.label"
+        },
+        {
+          "type": "link_list",
+          "id": "menu",
+          "default": "footer",
+          "label": "t:sections.footer.blocks.link_list.settings.menu.label",
+          "info": "t:sections.footer.blocks.link_list.settings.menu.info"
+        }
+      ]
+    }
+  ],
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "rtb",
+      "default": "<p>Taiwan Quality You Can Taste<br> Pure Flavor<br> Historical Heritage<\/p>",
+      "label": "t:sections.footer.settings.rtb.label"
+    },
+    {
+      "type": "text",
+      "id": "copyright",
+      "default": "Copyright © 2022 Taiwan Way Inc. All rights reserved.",
+      "label": "t:sections.footer.settings.copyright.label"
+    },
+    {
+      "type": "text",
+      "id": "followus",
+      "default": "Follow us",
+      "label": "t:sections.footer.settings.followus.label"
+    }
+  ],
+  "default": {
+    "blocks": [
+      {
+        "type": "link_list"
+      }
+    ]
+  }
+}
+{% endschema %}
