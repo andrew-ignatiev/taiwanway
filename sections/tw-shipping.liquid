@@ -1,12 +1,79 @@
+<div id="shipping" class="container lg:max-w-[876] mx-auto my-10 px-5">
+  <p class="font-medium text-c1 text-center uppercase">
+    {{ section.settings.heading_1 | escape }}
+  </p>
+  <p class="font-medium lowercase my-5 text-4xl text-center">
+    {{ section.settings.heading_2 | escape }}
+  </p>
+  <p class="text-center">
+    {{ section.settings.heading_3 | escape }}
+  </p>
+  <div class="border border-c2 divide-c2 divide-y md:divide-x md:divide-y-0 md:flex mt-5">
+      <div class="flex items-center justify-between md:basis-1/2 px-5 py-3">
+          <div>
+            {{ section.settings.delivery_option_title_1 | escape }}
+          </div>
+          <div class="font-medium pl-5">
+            {{ section.settings.delivery_option_price_1 | escape }}
+          </div>
+      </div>
+      <div class="flex items-center justify-between md:basis-1/2 px-5 py-3">
+          <div>
+            {{ section.settings.delivery_option_title_2 | escape }}
+          </div>
+          <div class="font-medium pl-5">
+            {{ section.settings.delivery_option_price_2 | escape }}
+          </div>
+      </div>
+  </div>
+  <img src="{{ 'tw_shipping.60455f4e.jpg' | asset_url }}" width="877" height="584" class="mt-5 mx-auto w-full">
+</div>
 {% schema %}
   {
-    "name": "Section name",
-    "settings": []
+    "name": "Taiwanway Shipping",
+    "settings": [
+      {
+        "id": "heading_1",
+        "type": "text",
+        "label": "Heading 1",
+        "default": "Now we deliver"
+      },
+      {
+        "id": "heading_2",
+        "type": "text",
+        "label": "Heading 2",
+        "default": "Shipping and Pick up Availiable"
+      },
+      {
+        "id": "heading_3",
+        "type": "text",
+        "label": "Heading 3",
+        "default": "Estimated delivery times Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doeiusmod tempor"
+      },
+      {
+        "id": "delivery_option_title_1",
+        "type": "text",
+        "label": "Delivery Option Title 1",
+        "default": "Delivery within Greater Vancouver area"
+      },
+      {
+        "id": "delivery_option_price_1",
+        "type": "text",
+        "label": "Delivery Option Price 1",
+        "default": "$10"
+      },
+      {
+        "id": "delivery_option_title_2",
+        "type": "text",
+        "label": "Delivery Option Title 2",
+        "default": "Delivery within Greater Vancouver area for all orders over $100"
+      },
+      {
+        "id": "delivery_option_price_2",
+        "type": "text",
+        "label": "Delivery Option Price 2",
+        "default": "free"
+      }
+    ]
   }
 {% endschema %}
-
-{% stylesheet %}
-{% endstylesheet %}
-
-{% javascript %}
-{% endjavascript %}
