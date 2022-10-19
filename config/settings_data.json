@@ -166,7 +166,7 @@
       "tw-announcement-bar": {
         "type": "tw-announcement-bar",
         "settings": {
-          "text": "Test Free standard shipping within Canada for purchases of over $100",
+          "text": "Free standard shipping within Canada for purchases of over $100",
           "link": ""
         }
       },
