@@ -1,23 +1,7 @@
 {
   "sections": {
-    "image_banner": {
-      "type": "image-banner",
-      "blocks": {
-        "heading": {
-          "type": "heading",
-          "settings": {
-          }
-        },
-        "text": {
-          "type": "text",
-          "settings": {
-          }
-        }
-      },
-      "block_order": [
-        "heading",
-        "text"
-      ],
+    "tw_top_banner": {
+      "type": "tw-top-banner",
       "settings": {
       }
     },
@@ -48,7 +32,7 @@
     }
   },
   "order": [
-    "image_banner",
+    "tw_top_banner",
     "featured_collection",
     "tw_shipping"
   ]
