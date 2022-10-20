@@ -29,11 +29,17 @@
       "type": "tw-shipping",
       "settings": {
       }
+    },
+    "tw_contact_form": {
+      "type": "tw-contact-form",
+      "settings": {
+      }
     }
   },
   "order": [
     "tw_top_banner",
     "featured_collection",
-    "tw_shipping"
+    "tw_shipping",
+    "tw_contact_form"
   ]
 }
