@@ -1,12 +1,221 @@
+<div id="contact" class="container mx-auto my-10 p-5">
+  <p class="lowercase text-4xl text-center"
+    {{ section.settings.heading | escape }}
+  </p>
+  <p class="md:text-base text-center text-sm">
+    {{ section.settings.description | escape }}
+  </p>
+  <div class="md:flex md:space-x-10 mt-5">
+      <div class="lg:basis-1/2 md:basis-2/3">
+          <p class="font-medium mb-3 md:text-base text-sm uppercase">
+            {{ section.settings.form_label | escape }}
+          </p>
+          
+
+          {%- form 'contact', id: 'ContactForm', class: 'isolate' -%}
+            {%- if form.posted_successfully? -%}
+              <h2>Success</h2>
+            {%- elsif form.errors -%}
+              <h2>Error</h2>
+            {%- endif -%}
+          <form>
+              <div class="border border-c2 divide-c2 divide-y flex flex-wrap">
+                  <fieldset class="basis-full p-5">
+                    <input
+                      type="text" 
+                      id="{{ form.id }}-name"
+                      name="contact[name]"
+                      autocomplete="name"
+                      spellcheck="false" 
+                      value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}" 
+                      placeholder="{{ section.settings.form_name_label }}"
+                      title="{{ section.settings.form_name_label }}"
+                      class="bg-transparent border-c2 outline-none w-full"
+                      required="required"
+                    >
+                  </fieldset>
+                  <fieldset class="basis-full md:basis-1/2 md:border-r p-5">
+                    <input
+                      type="email"
+                      id="{{ form.id }}-email"
+                      name="contact[email]"
+                      autocomplete="email"
+                      spellcheck="false"
+                      autocapitalize="off"
+                      value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+                      placeholder="{{ section.settings.form_email_label }}"
+                      title="{{ section.settings.form_email_label }}"
+                      class="bg-transparent border-c2 outline-none w-full"
+                      required="required"
+                    >
+                  </fieldset>
+                  <fieldset class="basis-full md:basis-1/2 p-5">
+                    <input 
+                      type="text"
+                      id="{{ form.id }}-request-subject"
+                      name="contact[request_subject]"
+                      value="{{ form.request_subject }}"
+                      placeholder="{{ section.settings.form_subject_label }}"
+                      title="{{ section.settings.form_subject_label }}"
+                      class="bg-transparent border-c2 outline-none w-full"
+                      required="required"
+                    >
+                  </fieldset>
+                  <fieldset class="basis-full p-5">
+                    <textarea
+                      id="{{ form.id }}-body"
+                      class="bg-transparent border-c2 outline-none w-full"
+                      name="contact[body]"
+                      title="{{ section.settings.form_body_label }}"
+                      placeholder="{{ section.settings.form_body_label }}"
+                      required="required"
+                    >
+                      {{- form.body -}}
+                    </textarea>
+                  </fieldset>
+              </div>
+              <button type="submit" class="bg-c3 block font-medium hover:bg-c4 ml-auto mr-0 mt-5 p-3 uppercase w-[168]">
+                {{ section.settings.form_button_title | escape }}
+              </button>
+          </form>
+        {%- endform -%}
+      </div>
+      <div
+          class="flex lg:basis-1/2 md:basis-1/3 md:block md:flex-wrap md:mt-0 md:space-x-0 md:text-base mt-10 space-x-5 text-sm">
+          <div class="basis-3/5 md:basis-full">
+              <p class="font-medium mb-2 uppercase">
+                {{ section.settings.address_label_1 | escape }}
+              </p>
+              <p>
+                {{ section.settings.address_value_1 | escape }}
+              </p>
+              <div class="flex items-center mt-2">
+                  <div>
+                    <img src="{{ 'tw_location_icon.f9ccd23e.png' | asset_url }}" width="22" height="32" class="mr-3 w-[11]">
+                  </div>
+                  <p class="text-c1">{{ section.settings.address_location | escape }}</p>
+              </div>
+          </div>
+          <div class="basis-2/5 md:basis-full">
+              <p class="font-medium mb-2 md:mt-3 uppercase">
+                {{ section.settings.address_label_2 | escape }}
+              </p>
+              <p>
+                {{ section.settings.address_value_2 | escape }}
+              </p>
+              <p class="font-medium mb-2 mt-3 uppercase">
+                {{ section.settings.address_label_3 | escape }}
+              </p>
+              <p>
+                {{ section.settings.address_value_3 | escape }}
+              </p>
+          </div>
+      </div>
+  </div>
+</div>
+
 {% schema %}
-  {
-    "name": "Section name",
-    "settings": []
-  }
+{
+  "name":"TW Contact Form",
+  "tag":"section",
+  "settings": [
+    {
+      "id":"heading",
+      "type":"text",
+      "label":"Heading",
+      "default":"Contact Us"
+    },
+    {
+      "id":"description",
+      "type":"text",
+      "label":"Description",
+      "default":"We are here to help and answer any questions you might have. We look forward to hearing from you!"
+    },
+    {
+      "id":"form_label",
+      "type":"text",
+      "label":"Form Label",
+      "default":"Drop Us a line!"
+    },
+
+    {
+      "id":"form_name_label",
+      "type":"text",
+      "label":"Form Name Label",
+      "default":"Your name"
+    },
+    {
+      "id":"form_email_label",
+      "type":"text",
+      "label":"Form Email Label",
+      "default":"Your email"
+    },
+    {
+      "id":"form_subject_label",
+      "type":"text",
+      "label":"Form Subject Label",
+      "default":"Subject"
+    },
+    {
+      "id":"form_body_label",
+      "type":"text",
+      "label":"Form Body Label",
+      "default":"Enter text here"
+    },
+    {
+      "id":"form_button_title",
+      "type":"text",
+      "label":"Form Button Title",
+      "default":"Send"
+    },
+    {
+      "id":"address_label_1",
+      "type":"text",
+      "label":"Address Label 1",
+      "default":"Address"
+    },
+    {
+      "id":"address_value_1",
+      "type":"text",
+      "label":"Address Value 1",
+      "default":"#1140 - 551 Sherling Pl. Port Coquitlam, BC V3B 0J6"
+    },
+    {
+      "id":"address_location",
+      "type":"text",
+      "label":"Address Location",
+      "default":"Pick up is availiable from this location"
+    },
+    {
+      "id":"address_label_2",
+      "type":"text",
+      "label":"Address Label 2",
+      "default":"Phone"
+    },
+    {
+      "id":"address_value_2",
+      "type":"text",
+      "label":"Address Value 2",
+      "default":"+1 778-917-5218"
+    },
+    {
+      "id":"address_label_3",
+      "type":"text",
+      "label":"Address Label 3",
+      "default":"Email"
+    },
+    {
+      "id":"address_value_3",
+      "type":"text",
+      "label":"Address Value 3",
+      "default":"info@taiwanway.ca"
+    }
+  ],
+  "presets": [
+    {
+      "name":"tw-contact-form",
+      "category":"Custom"
+    }
+  ]
+}
 {% endschema %}
-
-{% stylesheet %}
-{% endstylesheet %}
-
-{% javascript %}
-{% endjavascript %}
