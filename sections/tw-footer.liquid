@@ -1,12 +1,82 @@
+<div class="bg-c3 md:text-base mt-5 pb-5 pt-10 text-xs">
+  <div class="container mx-auto px-5">
+    <div class="flex">
+      <div class="basis-[42px] flex-shrink-0">
+        <img src="{{ 'tw_white_logo.b6c64964.svg' | asset_url }}" width="42" height="90" alt="logo">
+      </div>
+      <div class="basis-full md:flex md:items-center md:justify-between ml-5">
+        <div class="font-medium uppercase">
+          {{ section.settings.rtb }}
+        </div>
+        <div class="md:flex md:flex-col-reverse">
+          <div class="font-medium md:mr-5 md:text-right mt-5 uppercase">
+            {{ section.settings.followus }}
+            <a href="https://www.facebook.com/TaiwanWaymarket/" class="group ml-4">
+              <img class="group-hover:hidden inline" src="{{ 'tw_Facebook_black.ff310483.svg' | asset_url }}" width="7" height="15" alt="facebook">
+              <img class="group-hover:inline hidden" src="{{ 'tw_Facebook_white.5f207e56.svg' | asset_url }}" width="7" height="15" alt="facebook">
+            </a>
+            <a href="https://www.instagram.com/taiwanway.market/" class="group ml-4">
+              <img class="group-hover:hidden inline" src="{{ 'tw_Instagram_black.eff2ac5b.svg' | asset_url }}" width="17" height="17" alt="instagram">
+              <img class="group-hover:inline hidden" src="{{ 'tw_Instagram_white.0c1f4b9e.svg' | asset_url }}" width="17" height="17" alt="instagram">
+            </a>
+          </div>
+          {%- if section.settings.menu != blank -%}
+            <div class="flex justify-center md:ml-0 md:mt-0 ml-[-42] mt-5">
+            {%- for link in section.settings.menu.links -%}
+              {% if link.url contains '#' %}
+                {% assign anchor = link.url | replace: "#", "" %}
+                <a href="{{ link.url }}" class="hover:text-c5 mx-5" onclick="taiwanway.scrollToElement('{{ anchor }}')">
+                  {{ link.title | escape }}
+                </a>
+                {%- endif -%}
+              {%- endfor -%}
+            </div>
+          {%- endif -%}    
+        </div>
+      </div>  
+    </div>
+  </div>
+  {%- if section.settings.copyright != blank -%}
+    <div class="mt-5 text-center">
+      {{ section.settings.copyright }}
+    </div>
+  {%- endif -%}
+</div>
+
 {% schema %}
-  {
-    "name": "Section name",
-    "settings": []
-  }
+{
+  "name": "TW Footer",
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "menu",
+      "default": "footer",
+      "label": "Footer Menu Links"
+    },
+    {
+      "type": "richtext",
+      "id": "rtb",
+      "default": "<p>Taiwan Quality You Can Taste<br>Pure Flavor<br>Historical Heritage<\/p>",
+      "label": "Reasons To Believe"
+    },
+    {
+      "type": "text",
+      "id": "copyright",
+      "default": "Copyright © 2022 Taiwan Way Inc. All rights reserved.",
+      "label": "Copyright"
+    },
+    {
+      "type": "text",
+      "id": "followus",
+      "default": "Follow us",
+      "label": "Follow us"
+    }
+  ],
+  "presets": [
+    {
+      "name": "tw-footer",
+      "category": "Custom"
+    }
+  ]
+}
 {% endschema %}
-
-{% stylesheet %}
-{% endstylesheet %}
-
-{% javascript %}
-{% endjavascript %}
