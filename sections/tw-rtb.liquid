@@ -1,0 +1,193 @@
+
+<div class="container md:flex md:flex-wrap mx-auto my-10 px-5">
+  <div class="bg-c3 md:basis-1/2 p-5">
+    <p class="md:text-base text-sm uppercase">
+      {{ section.settings.rtb_1_heading | escape }}
+    </p>
+    <p class="font-medium text-lg">
+      {{ section.settings.rtb_1_label | escape }}
+    </p>
+    <p class="md:text-base text-sm">
+      {{ section.settings.rtb_1_text | escape }}
+    </p>
+    <img src="{{ 'tw_food_icons.df2e6177.png' | asset_url }}" width="348" height="112" class="mt-5 mx-auto w-[174]">
+  </div>
+  <div class="border border-c2 md:basis-1/2 p-5">
+    <p class="md:text-base text-sm uppercase">
+      {{ section.settings.rtb_2_heading | escape }}
+    </p>
+    <p class="font-medium text-lg">
+      {{ section.settings.rtb_2_label | escape }}
+    </p>
+    <p class="md:text-base text-sm">
+      {{ section.settings.rtb_2_text | escape }}
+    </p>
+    <img src="{{ 'tw_tools.94fe64ed.png' | asset_url }}" width="378" height="140" class="mt-5 mx-auto w-[189]">
+  </div>
+  <div class="md:basis-1/2 mt-5 p-5 text-center xl:basis-1/4">
+      <p class="font-medium text-5xl">
+        {{ section.settings.rtb_3_heading | escape }}
+      </p>
+      <p class="font-medium leading-8 uppercase">
+        {{ section.settings.rtb_3_label | escape }}
+      </p>
+      <p class="md:text-base text-sm">
+        {{ section.settings.rtb_3_text | escape }}
+      </p>
+  </div>
+  <div class="md:basis-1/2 md:mt-5 p-5 text-center xl:basis-1/4">
+      <p class="font-medium text-5xl">
+        {{ section.settings.rtb_4_heading | escape }}
+      </p>
+      <p class="font-medium leading-8 uppercase">
+        {{ section.settings.rtb_4_label | escape }}
+      </p>
+      <p class="md:text-base text-sm">
+        {{ section.settings.rtb_4_text | escape }}
+      </p>
+  </div>
+  <div class="md:basis-1/2 p-5 text-center xl:basis-1/4 xl:mt-5">
+      <p class="font-medium text-5xl">
+        {{ section.settings.rtb_5_heading | escape }}
+      </p>
+      <p class="font-medium leading-8 uppercase">
+        {{ section.settings.rtb_5_label | escape }}
+      </p>
+      <p class="md:text-base text-sm">
+        {{ section.settings.rtb_5_text | escape }}
+      </p>
+  </div>
+  <div class="md:basis-1/2 p-5 text-center xl:basis-1/4 xl:mt-5">
+      <p class="font-medium text-5xl">
+        {{ section.settings.rtb_6_heading | escape }}
+      </p>
+      <p class="font-medium leading-8 uppercase">
+        {{ section.settings.rtb_6_label | escape }}
+      </p>
+      <p class="md:text-base text-sm">
+        {{ section.settings.rtb_6_text | escape }}
+      </p>
+  </div>
+</div>
+{% schema %}
+{
+  "name":"TW Reasons To Believe",
+  "tag":"section",
+  "settings": [
+    {
+      "id":"rtb_1_heading",
+      "type":"text",
+      "label":"RTB 1 Heading",
+      "default":"Mom’s great helpers"
+    },
+    {
+      "id":"rtb_1_label",
+      "type":"text",
+      "label":"RTB 1 Label",
+      "default":"Loved by whole Family"
+    },
+    {
+      "id":"rtb_1_text",
+      "type":"textarea",
+      "label":"RTB 1 Text",
+      "default":"Easy to cook…. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    },
+    {
+      "id":"rtb_2_heading",
+      "type":"text",
+      "label":"RTB 2 Heading"
+    },
+    {
+      "id":"rtb_2_label",
+      "type":"text",
+      "label":"RTB 2 Label",
+      "default":"Hight Manufacture Standards"
+    },
+    {
+      "id":"rtb_2_text",
+      "type":"textarea",
+      "label":"RTB 2 Text",
+      "default":"Our sausages are made in a very clean and professional state-of-the-art facility, entire processing facility temperature is keep at 10 degree C or below at all time, so the produce stays fresh"
+    },
+
+    {
+      "id":"rtb_3_heading",
+      "type":"text",
+      "label":"RTB 3 Heading",
+      "default":"80%+"
+    },
+    {
+      "id":"rtb_3_label",
+      "type":"text",
+      "label":"RTB 3 Label",
+      "default":"MEAT GARANTY"
+    },
+    {
+      "id":"rtb_3_text",
+      "type":"textarea",
+      "label":"RTB 3 Text",
+      "default":"Pure meat, no trim or starch added, we use Picnic (considered as more expensive pork part)"
+    },
+    {
+      "id":"rtb_4_heading",
+      "type":"text",
+      "label":"RTB 4 Heading",
+      "default":"70%"
+    },
+    {
+      "id":"rtb_4_label",
+      "type":"text",
+      "label":"RTB 4 Label",
+      "default":"RESTAURANTS"
+    },
+    {
+      "id":"rtb_4_text",
+      "type":"textarea",
+      "label":"RTB 4 Text",
+      "default":"Our sausage has been approved and used by over 70% of Taiwanese restaurants in Vancouver"
+    },
+    {
+      "id":"rtb_5_heading",
+      "type":"text",
+      "label":"RTB 5 Heading",
+      "default":"10"
+    },
+    {
+      "id":"rtb_5_label",
+      "type":"text",
+      "label":"RTB 5 Label",
+      "default":"YEARS"
+    },
+    {
+      "id":"rtb_5_text",
+      "type":"textarea",
+      "label":"RTB 5 Text",
+      "default":"Serving Greater Vancouver area for more then 10 years with proven quality and authentic taste produce"
+    },
+    {
+      "id":"rtb_6_heading",
+      "type":"text",
+      "label":"RTB 6 Heading",
+      "default":"0"
+    },
+    {
+      "id":"rtb_6_label",
+      "type":"text",
+      "label":"RTB 6 Label",
+      "default":"PRESERVATIVES"
+    },
+    {
+      "id":"rtb_6_text",
+      "type":"textarea",
+      "label":"RTB 6 Text",
+      "default":"Since our sausage required to be frozen, we take out preservatives like Potassium Sorbate to make it healthier"
+    }
+  ],
+  "presets": [
+    {
+      "name": "tw-rtb",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

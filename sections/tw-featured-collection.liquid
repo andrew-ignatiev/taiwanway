@@ -1,0 +1,278 @@
+{% comment %} https://freakdesign.com.au/blogs/news/sort-products-in-a-shopify-collection-by-metafield-value-without-javascript {% endcomment %}
+{%- liquid
+  assign products = section.settings.collection.products
+  assign newArray = false
+  assign zeroFill = '0000'
+  assign zeroFillSize = zeroFill | size
+  assign variantImages = blank
+  assign index = 0
+  assign productTypes = blank
+
+  for product in products
+	  assign indexCharSize = forloop.index0 | append: '' | size
+	  assign toSlice = zeroFillSize | minus: indexCharSize
+	  assign tmpZeroFill = zeroFill | slice: 0, toSlice
+	  assign newOrder = product.metafields.descriptors.order | default: '999999'
+	  assign matrix = tmpZeroFill | append: newOrder | append: '.' | append: forloop.index0
+
+    if newArray
+		  assign tmpIndex = matrix | split: ','
+		  assign newArray = newArray | concat: tmpIndex
+	  else  
+		  assign newArray = matrix | split: ','
+	  endif
+
+    assign newArray = newArray | sort
+
+    
+    for variant in product.variants
+      if variant.metafields.descriptors.images != blank
+        assign imgs1 = variant.metafields.descriptors.images.value | json | replace: "[", "" | replace: "]", "" | replace: "\", "" | replace: '"', ""
+        assign imgs2 = variant.id | append: "[:]" | append: imgs1
+
+        if index == 0
+          assign variantImages = imgs2
+          assign index = index | plus: "1"
+        else
+          assign variantImages = variantImages | append: "[::]" | append: imgs2
+        endif
+      endif
+    endfor
+  endfor
+
+  assign variantImages = variantImages | split: "[::]"
+
+  for item in newArray
+    assign i = item | split: '.' | last | times: 1
+    assign product = products[i]
+
+    unless productTypes contains product.type
+      if productTypes == blank 
+        assign productTypes = product.type
+      else 
+        assign productTypes = productTypes | append: "," | append: product.type
+      endif
+    endunless
+  endfor
+
+  assign productTypes = productTypes | split: ","
+-%}
+<div class="container mx-auto my-10 px-5" id="products">
+  <div class="border border-c2 md:flex md:items-center md:justify-between p-2.5">
+      <p class="font-medium m-2.5 text-xl">
+        {{ section.settings.filter_label }}
+      </p>
+      <div class="flex flex-wrap justify-between md:text-base text-xs uppercase">
+        <a data-filter="all" onclick="taiwanway.filterProducts('all')" class="p-2.5 text-c1" href="#all">
+        {{ section.settings.filter_reset }}
+        </a>
+        {%- for productType in productTypes -%}
+          {%- assign type = productType | replace: " ", "_" -%}
+        <a data-filter="{{ type }}" onclick="taiwanway.filterProducts('{{ type }}')" class="p-2.5" href="#{{ type }}">{{ productType }}</a>
+        {%- endfor -%}
+      </div>
+  </div>
+</div>
+<div>
+{%- for product in products -%}
+  {%- for variant in product.variants -%}
+  <div data-modal-id="{{ variant.id }}" class="bg-c4/50 bottom-0 fixed flex flex-col hidden justify-center left-0 opacity-0 right-0 top-0 transition-opacity z-10">
+    <div class="bg-c5 container mx-auto overflow-y-auto overscroll-contain p-5">
+      <div class="text-right">
+        <button onclick="taiwanway.hideModal({{ variant.id }})">
+          <img src="{{ 'tw_close_icon.36162d4e.svg' | asset_url }}" width="20" height="17" alt="close icon" class="mb-3 md:hidden">
+          <span class="hidden mb-5 md:block underline">
+            {{ section.settings.modal_close }}
+          </span>
+        </button>
+      </div>
+      <div class="lg:flex lg:items-start lg:space-x-10">
+        <div class="lg:basis-1/2 mb-5">
+        {%- if variantImages != blank and variantImages.size > 0 -%}
+          {%- assign variantImgs = blank -%}
+          {%- assign key = variant.id | append: "[:]" -%}
+          
+          {%- for item in variantImages -%}
+            {%- if item contains key -%}
+              {%- assign variantImgs = item | replace: key, "" | split: "," -%}
+            {%- endif -%}
+          {%- endfor -%}
+          <div id="carousel-{{ variant.id }}">
+            <div class="flex items-center justify-between relative">
+              <div class="flex-shrink-0 hidden md:block">
+                <button class="md:p-3" onclick="taiwanway.carouselLeft({{ variant.id }})">
+                  <img src="{{ 'tw_Arrow_Left.573724db.svg' | asset_url }}" width="16" height="29" class="md:w-6" alt="arrow left">
+                </button>
+              </div>
+              <div class="w-full">
+                <div class="pt-[80%] relative">
+                  <div data-carousel="" class="absolute bottom-0 carousel-container flex left-0 overflow-x-scroll overflow-y-hidden right-0 scrollbar-hide top-0">
+                    {%- for img in variantImgs -%}
+                    <div data-carousel-item="{{ forloop.index }}" class="basis-full carousel-item flex-grow-0 flex-shrink-0 relative w-full">
+                      <img src="{{ img }}" width="840" height="656" class="w-full">
+                    </div>
+                    {%- endfor -%}
+                  </div>
+                </div>
+              </div>
+              <div class="flex-shrink-0 hidden md:block">
+                <button class="md:p-3" onclick="taiwanway.carouselRight({{ variant.id }})">
+                  <img src="{{ 'tw_Arrow_Right.bee6befd.svg' | asset_url }}" width="16" height="29" class="md:w-6" alt="arrow right">
+                </button>
+              </div>
+            </div>
+            <div class="hidden lg:block md:mx-12 overflow-hidden pt-[23%] relative">
+              <div data-thumbnails="" class="absolute bottom-0 carousel-container flex left-0 overflow-hidden right-0 scrollbar-hide space-x-5 top-0">
+                {%- for img in variantImgs -%}
+                <div data-thumbnail-item="{{ forloop.index }}" class="basis-1/3 carousel-item flex-grow-0 flex-shrink-0 relative w-1/3" onclick="taiwanway.carouselScrollTo({{ variant.id }}, {{ forloop.index }})">
+                  <img src="{{ img }}" width="840" height="656" class="grayscale mx-auto transition-all">
+                </div>
+                {%- endfor -%}
+              </div>
+            </div>
+          </div>
+        {%- endif -%}
+        </div>
+        <div class="lg:basis-1/2 md:text-base text-sm">
+          <div class="flex font-medium items-center justify-between md:text-xl text-base uppercase">
+            <p>{{ product.title }}</p>
+            <p>{{ variant.price | money_with_currency }}</p>
+          </div>
+            <p class="text-c1">{{ variant.metafields.descriptors.subtitle }}</p>
+            {{ variant.metafields.descriptors.description }}
+            <div class="my-5">
+              <p class="font-medium my-3 uppercase">
+                {%- if product.options != blank and product.options.size > 0 -%}
+                {{ product.options | first }}
+                {%- endif -%}
+              </p>
+              <div class="flex items-stretch justify-between space-x-5 text-center">
+                {%- for v in product.variants -%}
+                  {%- if variant.id == v.id -%}
+                  <p class="basis-1/3 bg-c3 p-3">{{ v.title }}</p>
+                  {%- else -%}
+                  <p class="basis-1/3 border border-c2 p-3">{{ v.title }}</p>
+                  {%- endif -%}
+                {%- endfor -%}
+              </div>
+            </div>
+            <form method="post" action="/cart/add">
+            <div class="flex items-end mt-5 space-x-10">
+                <div class="basis-1/4 ml-0">
+                  <label for="qty-{{ variant.id }}" class="font-medium uppercase">
+                    {{ section.settings.form_quantity }}
+                  </label>
+                  <div class="flex font-medium items-center justify-between py-3">
+                    <button onclick="event.preventDefault();event.stopPropagation();taiwanway.decrease({{ variant.id }})">-</button>
+                    <input id="qty-{{ variant.id }}" name="quantity" readonly type="text" value="1" max="10" min="1" class="bg-transparent text-center w-6">
+                    <button onclick="event.preventDefault();event.stopPropagation();taiwanway.increase({{ variant.id }})">+</button>
+                  </div>
+                </div>
+                <div class="basis-3/4">
+                  <input name="id"  value="{{ variant.id }}" type="hidden" />
+                  <input name="add" value="{{ section.settings.form_add_to_cart }}" type="submit" class="cursor-pointer bg-c3 font-medium p-3 text-sm uppercase w-full" />
+                </div>
+              
+            </div>
+          </form>
+            <button class="md:hidden mt-5 underline" onclick="taiwanway.hideModal({{ variant.id }})">
+              {{ section.settings.modal_close }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+{% endfor %}
+</div>
+<div class="container flex flex-wrap items-end mx-auto my-10 p-2.5">
+{% for item in newArray %}
+  {% assign i = item | split: '.' | last | times: 1 %}
+  {% assign product = products[i] %}
+
+  {%- for variant in product.variants -%} 
+    {%- liquid
+      assign product_img = ''
+
+      if variant.metafields.descriptors.images != blank
+        assign product_imgs = variant.metafields.descriptors.images.value | json | replace: "[", "" | replace: "]", "" | replace: "\", "" | replace: '"', "" | split: ","
+        assign product_img = product_imgs | first 
+      endif
+    -%}
+
+  <div class="basis-1/2 group hover:bg-c2 hover:text-c5 md:basis-1/3 md:text-base p-2.5 relative text-sm" data-product-type="{{ product.type | replace: " ", "_" }}">
+      <div class="absolute group-hover:block hidden left-0 max-w-[250] mx-auto right-0 space-y-3 top-[15%] w-3/4">
+        <form method="post" action="/cart/add">
+          <input name="id"  value="{{ variant.id }}" type="hidden" />
+          <input name="add" value="{{ section.settings.form_add_to_cart }}" type="submit" class="cursor-pointer bg-c5 font-medium p-3 text-c2 uppercase w-full" />
+        </form>
+        <button class="bg-c5 p-3 text-c2 underline w-full" onclick="taiwanway.showModal({{ variant.id }})">
+          {{ section.settings.form_see_details }}
+        </button>
+      </div>
+      
+      <img class="mb-5 mx-auto" src="{{ product_img }}">
+      <p class="font-medium text-center uppercase">{{ product.title }}</p>
+      <p class="text-c4 text-center">{{ variant.metafields.descriptors.short_subtitle }}</p>
+      <p class="font-bold text-center">{{ variant.price | money_with_currency }}</p>
+  </div>
+  {%- endfor -%}
+{%- endfor -%}
+</div>
+
+{% schema %}
+{
+  "name": "TW Featured Collection",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "id":"filter_label",
+      "type":"text",
+      "label":"Filter Label",
+      "default":"Try our products"
+    },
+    {
+      "id":"filter_reset",
+      "type":"text",
+      "label":"Filter Reset",
+      "default":"All"
+    },
+    {
+      "id":"modal_close",
+      "type":"text",
+      "label":"Close",
+      "default":"Close"
+    },
+    {
+      "id":"form_quantity",
+      "type":"text",
+      "label":"Form Quantity",
+      "default":"Quantity"
+    },
+    {
+      "id":"form_add_to_cart",
+      "type":"text",
+      "label":"Form Add To Cart",
+      "default":"Add to cart"
+    },
+    {
+      "id":"form_see_details",
+      "type":"text",
+      "label":"Form See Details",
+      "default":"See details"
+    }
+  ],
+  "presets": [
+    {
+      "name": "tw-featured-collection",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

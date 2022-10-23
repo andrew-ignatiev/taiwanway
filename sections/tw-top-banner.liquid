@@ -1,0 +1,111 @@
+<div class="lg:bg-[length:723px] md:bg-[length:500px] md:bg-[right_50vw_bottom] md:bg-[url('static/ink_drawing.png')] md:bg-no-repeat">
+  <div class="container mx-auto">
+    <div class="md:flex">
+        <div class="md:basis-1/2">
+          <img src="{{ 'tw_logo_vertical.0544ec1b.png' | asset_url }}" width="144" height="314" class="hidden md:block mx-5 w-[72]">
+          <h1 class="font-medium mb-3 md:text-left mt-7 mx-5 text-4xl text-center">
+            {{ section.settings.heading_1 | escape }}
+          </h1>
+          <p class="md:text-left mx-5 text-center">
+            {{ section.settings.description_1 | escape }} 
+          </p>
+        </div>
+        <div class="bg-[length:376px] bg-[url('static/main_image_bg.png')] bg-bottom bg-no-repeat md:basis-1/2 md:bg-[length:540px] md:bg-none md:mb-32 md:mt-40 mt-5">
+          <div class="max-w-[336] md:max-w-[500] mx-auto relative">
+            <img src="{{ 'tw_main_image.769e571a.png' | asset_url }}" width="672" height="928" class="max-w-[336] md:max-w-[500] w-full">
+              <div class="absolute left-0 lg:text-lg lg:top-[390] lg:w-[350] md:text-sm md:top-[290] md:w-[280] mx-auto right-0 text-c4 text-xs top-[260] w-[250]">
+                <p class="font-medium leading-5 lg:leading-7 md:leading-6 uppercase">
+                  {{ section.settings.heading_2 | escape }} 
+                </p>
+                <p class="leading-4 lg:leading-6 md:leading-5">
+                  {{ section.settings.description_2 | escape }} 
+                </p>
+              </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+<div class="container mx-auto my-10">
+  <div class="flex flex-wrap font-medium m-3 md:text-base text-xs">
+    <div class="align-middle basis-1/2 flex items-center justify-items-start lg:flex-row lg:items-center md:basis-1/4 md:flex-col md:items-start">
+      <img src="{{ 'tw_meat_icon.99bb639b.svg' | asset_url }}" width="52" height="36" class="basis-[55px] block flex-shrink-0 m-2">
+      <p class="m-2 uppercase">{{ section.settings.rtb_1 | escape }}</p>
+    </div>
+    <div class=":flex-row align-middle basis-1/2 flex items-center justify-items-start lg:flex-row lg:items-center md:basis-1/4 md:flex-col md:items-start">
+      <img src="{{ 'tw_maple_leaf_icon.0d8cf143.svg' | asset_url }}" width="44" height="49" class="basis-[55px] block flex-shrink-0 m-2">
+      <p class="m-2 uppercase">{{ section.settings.rtb_2 | escape }}</p></p>
+    </div>
+    <div class="align-middle basis-1/2 flex items-center justify-items-start lg:flex-row lg:items-center md:basis-1/4 md:flex-col md:items-start">
+      <img src="{{ 'tw_sausage_icon.b9da58e7.svg' | asset_url }}" width="42" height="39" class="basis-[55px] block flex-shrink-0 m-2">
+      <p class="m-2 uppercase">{{ section.settings.rtb_3 | escape }}</p></p>
+    </div>
+    <div class="align-middle basis-1/2 flex items-center justify-items-start lg:flex-row lg:items-center md:basis-1/4 md:flex-col md:items-start">
+      <img src="{{ 'tw_no_preservatives_icon.167f4c77.svg' | asset_url }}" width="31" height="36" class="basis-[55px] block flex-shrink-0 m-2">
+      <p class="m-2 uppercase">{{ section.settings.rtb_4 | escape }}</p></p>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "TW Top Banner",
+  "tag": "section",
+  "settings": [
+    {
+      "id": "heading_1",
+      "type": "text",
+      "default": "Taiwan quality you can taste",
+      "label": "Heading 1"
+    },
+    {
+      "id": "description_1",
+      "type": "textarea",
+      "default": "Rare, authentic taste of Taiwanese Sausage made fresh in Canada. Loved by whole family. Now delivered to your door.",
+      "label": "Description 1"
+    },
+    {
+      "id": "heading_2",
+      "type": "text",
+      "default": "AUTHENTIC TAIWANESE",
+      "label": "Heading 2"
+    },
+    {
+      "id": "description_2",
+      "type": "textarea",
+      "default": "Taiwan sausage was created before the Southern and Northern Dynasties. The \"enema method\" used in the \"Qi Min Yaoshu\" of the Northern Wei Dynasty was first seen and has been passed down to this day.",
+      "label": "Description 2"
+    },
+    {
+      "type": "text",
+      "id": "rtb_1",
+      "default": "MADE WITH FRESH LOCAL PORK",
+      "label": "Reasons To Believe 1"
+    },
+    {
+      "type": "text",
+      "id": "rtb_2",
+      "default": "MADE IN CANADA IN SMALL BATCHES",
+      "label": "Reasons To Believe 2"
+    },
+    {
+      "type": "text",
+      "id": "rtb_3",
+      "default": "WE USE NATURAL HOG CASING",
+      "label": "Reasons To Believe 3"
+    },
+    {
+      "type": "text",
+      "id": "rtb_4",
+      "default": "NO PRESERVATIES ADDED",
+      "label": "Reasons To Believe 4"
+    }
+  ],
+  "presets": [
+    {
+      "name": "tw-top-banner",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

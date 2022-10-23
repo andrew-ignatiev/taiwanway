@@ -1,0 +1,39 @@
+<div class="bg-c4 md:p-2 p-1 text-c5 text-center">
+  {%- if section.settings.link != blank -%}
+  <a href="{{ section.settings.link }}" class="link">
+  {%- endif -%}
+  <span class="hidden md:inline">
+    {{ section.settings.text | escape }}
+  </span>
+  <span class="md:hidden text-sm">
+    {{ section.settings.text | escape }}
+  </span>
+  {%- if section.settings.link != blank -%}
+  </a>
+  {%- endif -%}
+</div>
+
+{% schema %}
+{
+  "name": "TW Announcement Bar",
+  "settings": [
+    {
+      "type": "text",
+      "id": "text",
+      "default": "Free standard shipping within Canada for purchases of over $100",
+      "label": "Announcement text"
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "Announcement link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "tw-announcement-bar",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
