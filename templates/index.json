@@ -3,14 +3,14 @@
     "tw_top_banner": {
       "type": "tw-top-banner",
       "settings": {
-        "heading_1": "Taiwan quality you can taste 123",
-        "description_1": "Rare, authentic taste of Taiwanese Sausage made fresh in Canada. Loved by whole family. Now delivered to your door. 444",
-        "heading_2": "AUTHENTIC TAIWANESE 555",
-        "description_2": "Taiwan sausage was created before the Southern and Northern Dynasties. The \"enema method\" used in the \"Qi Min Yaoshu\" of the Northern Wei Dynasty was first seen and has been passed down to this day. 777",
-        "rtb_1": "MADE WITH FRESH LOCAL PORK 1",
-        "rtb_2": "MADE IN CANADA IN SMALL BATCHE 2S",
-        "rtb_3": "WE USE NATURAL HOG CASING 3",
-        "rtb_4": "NO PRESERVATIES ADDED 4"
+        "heading_1": "Taiwan quality you can taste",
+        "description_1": "Rare, authentic taste of Taiwanese Sausage made fresh in Canada. Loved by whole family. Now delivered to your door.",
+        "heading_2": "AUTHENTIC TAIWANESE",
+        "description_2": "Taiwan sausage was created before the Southern and Northern Dynasties. The \"enema method\" used in the \"Qi Min Yaoshu\" of the Northern Wei Dynasty was first seen and has been passed down to this day.",
+        "rtb_1": "MADE WITH FRESH LOCAL PORK",
+        "rtb_2": "MADE IN CANADA IN SMALL BATCHE",
+        "rtb_3": "WE USE NATURAL HOG CASING",
+        "rtb_4": "NO PRESERVATIES ADDED"
       }
     },
     "tw_featured_collection": {

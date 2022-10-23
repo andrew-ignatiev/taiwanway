@@ -163,7 +163,7 @@
       "tw-announcement-bar": {
         "type": "tw-announcement-bar",
         "settings": {
-          "text": "Test Free standard shipping within Canada for purchases of over $100",
+          "text": "Free standard shipping within Canada for purchases of over $100",
           "link": ""
         }
       },
@@ -177,7 +177,7 @@
         "type": "tw-footer",
         "settings": {
           "menu": "footer",
-          "rtb": "<p>Taiwan Quality You Can Taste<br>Pure Flavor<br>Historical Heritage<\/p>",
+          "rtb": "<p>Taiwan Quality You Can Taste<br\/>Pure Flavor<br\/>Historical Heritage<\/p>",
           "copyright": "Copyright © 2022 Taiwan Way Inc. All rights reserved.",
           "followus": "Follow us"
         }
