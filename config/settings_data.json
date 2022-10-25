@@ -158,9 +158,6 @@
           "footer-0"
         ],
         "settings": {
-          "rtb": "<p>Taiwan Quality You Can Taste<br> Pure Flavor<br> Historical Heritage<\/p>",
-          "copyright": "Copyright © 2022 Taiwan Way Inc. All rights reserved.",
-          "followus": "Follow us"
         }
       },
       "tw-announcement-bar": {
@@ -174,6 +171,15 @@
         "type": "tw-header",
         "settings": {
           "menu": "main-menu"
+        }
+      },
+      "tw-footer": {
+        "type": "tw-footer",
+        "settings": {
+          "menu": "footer",
+          "rtb": "<p>Taiwan Quality You Can Taste<br\/>Pure Flavor<br\/>Historical Heritage<\/p>",
+          "copyright": "Copyright © 2022 Taiwan Way Inc. All rights reserved.",
+          "followus": "Follow us"
         }
       }
     },

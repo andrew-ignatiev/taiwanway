@@ -3,41 +3,81 @@
     "tw_top_banner": {
       "type": "tw-top-banner",
       "settings": {
+        "heading_1": "Taiwan quality you can taste",
+        "description_1": "Rare, authentic taste of Taiwanese Sausage made fresh in Canada. Loved by whole family. Now delivered to your door.",
+        "heading_2": "AUTHENTIC TAIWANESE",
+        "description_2": "Taiwan sausage was created before the Southern and Northern Dynasties. The \"enema method\" used in the \"Qi Min Yaoshu\" of the Northern Wei Dynasty was first seen and has been passed down to this day.",
+        "rtb_1": "MADE WITH FRESH LOCAL PORK",
+        "rtb_2": "MADE IN CANADA IN SMALL BATCHE",
+        "rtb_3": "WE USE NATURAL HOG CASING",
+        "rtb_4": "NO PRESERVATIES ADDED"
       }
     },
     "tw_featured_collection": {
       "type": "tw-featured-collection",
       "settings": {
-        "collection": "all"
+        "collection": "all",
+        "filter_label": "Try our products",
+        "filter_reset": "All",
+        "modal_close": "Close",
+        "form_quantity": "Quantity",
+        "form_add_to_cart": "Add to cart",
+        "form_see_details": "See details"
       }
     },
     "tw_rtb": {
       "type": "tw-rtb",
       "settings": {
+        "rtb_1_heading": "Mom’s great helpers",
+        "rtb_1_label": "Loved by whole Family",
+        "rtb_1_text": "Easy to cook…. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "rtb_2_heading": "",
+        "rtb_2_label": "Hight Manufacture Standards",
+        "rtb_2_text": "Our sausages are made in a very clean and professional state-of-the-art facility, entire processing facility temperature is keep at 10 degree C or below at all time, so the produce stays fresh",
+        "rtb_3_heading": "80%+",
+        "rtb_3_label": "MEAT GARANTY",
+        "rtb_3_text": "Pure meat, no trim or starch added, we use Picnic (considered as more expensive pork part)",
+        "rtb_4_heading": "70%",
+        "rtb_4_label": "RESTAURANTS",
+        "rtb_4_text": "Our sausage has been approved and used by over 70% of Taiwanese restaurants in Vancouver",
+        "rtb_5_heading": "10",
+        "rtb_5_label": "YEARS",
+        "rtb_5_text": "Serving Greater Vancouver area for more then 10 years with proven quality and authentic taste produce",
+        "rtb_6_heading": "0",
+        "rtb_6_label": "PRESERVATIVES",
+        "rtb_6_text": "Since our sausage required to be frozen, we take out preservatives like Potassium Sorbate to make it healthier"
       }
     },
     "tw_shipping": {
       "type": "tw-shipping",
       "settings": {
+        "heading_1": "Now we deliver",
+        "heading_2": "Shipping and Pick up Available",
+        "heading_3": "Estimated delivery times Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doeiusmod tempor",
+        "delivery_option_title_1": "Delivery within Greater Vancouver area",
+        "delivery_option_price_1": "$10",
+        "delivery_option_title_2": "Delivery within Greater Vancouver area for all orders over $100",
+        "delivery_option_price_2": "free"
       }
     },
     "tw_contact_form": {
       "type": "tw-contact-form",
       "settings": {
-        "title": "",
-        "heading_size": "h1",
-        "image_width": "third",
-        "image_ratio": "adapt",
-        "columns_desktop": 3,
-        "column_alignment": "center",
-        "background_style": "none",
-        "button_label": "",
-        "button_link": "",
-        "swipe_on_mobile": false,
-        "color_scheme": "background-1",
-        "columns_mobile": "1",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "heading": "Contact Us",
+        "description": "We are here to help and answer any questions you might have. We look forward to hearing from you!",
+        "form_label": "Drop Us a line!",
+        "form_name_label": "Your name",
+        "form_email_label": "Your email",
+        "form_subject_label": "Subject",
+        "form_body_label": "Enter text here",
+        "form_button_title": "Send",
+        "address_label_1": "Address",
+        "address_value_1": "#1140 - 551 Sherling Pl. Port Coquitlam, BC V3B 0J6",
+        "address_location": "Pick up is availiable from this location",
+        "address_label_2": "Phone",
+        "address_value_2": "+1 778-917-5218",
+        "address_label_3": "Email",
+        "address_value_3": "info@taiwanway.ca"
       }
     }
   },
