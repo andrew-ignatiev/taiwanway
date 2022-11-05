@@ -1,72 +1,111 @@
-
-<div class="container md:flex md:flex-wrap mx-auto my-10 px-5">
-  <div class="bg-c3 md:basis-1/2 p-5">
-    <p class="md:text-base text-sm uppercase">
-      {{ section.settings.rtb_1_heading | escape }}
-    </p>
-    <p class="font-medium text-lg">
-      {{ section.settings.rtb_1_label | escape }}
-    </p>
-    <p class="md:text-base text-sm">
-      {{ section.settings.rtb_1_text | escape }}
-    </p>
-    <img src="{{ 'tw_food_icons.df2e6177.png' | asset_url }}" width="348" height="112" class="mt-5 mx-auto w-[174]">
+<div class="container mx-auto my-10 px-5 md:my-16 md:flex md:flex-wrap">
+  <div class="flex flex-col justify-between bg-c3 p-5 md:basis-1/2 lg:p-12">
+    <div>
+      {%- if section.settings.rtb_1_heading != blank -%}
+      <p class="text-sm uppercase tracking-widest lg:text-base">
+        {{ section.settings.rtb_1_heading | escape }}
+      </p>
+      {%- endif -%}
+      {%- if section.settings.rtb_1_label != blank -%}
+      <p class="my-2 text-lg text-3xl lowercase tracking-wide md:text-4xl lg:my-5 xl:text-5xl">
+        {{ section.settings.rtb_1_label | escape }}
+      </p>
+      {%- endif -%}
+      {%- if section.settings.rtb_1_text != blank -%}
+      <p class="text-sm md:text-base lg:text-lg">
+        {{ section.settings.rtb_1_text | escape }}
+      </p>
+      {%- endif -%}
+    </div>
+    <img src="{{ 'tw_food_icons.3a6315aa.png' | asset_url }}" width="578" height="184" class="mr-5 ml-auto mt-5 w-2/3 max-w-[300]">
   </div>
-  <div class="border border-c2 md:basis-1/2 p-5">
-    <p class="md:text-base text-sm uppercase">
-      {{ section.settings.rtb_2_heading | escape }}
+  <div class="flex flex-col justify-between border border-c2 p-5 md:basis-1/2 lg:p-12">
+    <div>
+      {%- if section.settings.rtb_2_heading != blank -%}
+      <p class="text-sm uppercase tracking-widest lg:text-base">
+        {{ section.settings.rtb_2_heading | escape }}
+      </p>
+      {%- endif -%}
+      {%- if section.settings.rtb_2_label != blank -%}
+      <p class="lg:mb-5 lowercase mb-2 md:text-4xl text-3xl text-lg tracking-wide xl:text-5xl">
+        {{ section.settings.rtb_2_label | escape }}
+      </p>
+      {%- endif -%}
+      {%- if section.settings.rtb_2_text != blank -%}
+      <p class="text-sm md:text-base lg:text-lg">
+        {{ section.settings.rtb_2_text | escape }}
+      </p>
+      {%- endif -%}
+    </div>
+    <img src="{{ 'tw_tools.57fbfcd0.png' | asset_url }}" width="942" height="339" class="mr-5 ml-auto mt-5 w-2/3 max-w-[300]">
+  </div>
+  <div class="mt-5 p-5 text-center md:basis-1/2 lg:p-12 xl:basis-1/4 xl:p-5">
+    {%- if section.settings.rtb_3_heading != blank -%}
+    <p class="text-5xl font-medium tracking-wider">
+      {{ section.settings.rtb_3_heading | escape }}
     </p>
-    <p class="font-medium text-lg">
-      {{ section.settings.rtb_2_label | escape }}
+    {%- endif -%}
+    {%- if section.settings.rtb_3_label != blank -%}
+    <p class="font-medium uppercase leading-8 tracking-widest">
+      {{ section.settings.rtb_3_label | escape }}
     </p>
-    <p class="md:text-base text-sm">
-      {{ section.settings.rtb_2_text | escape }}
+    {%- endif -%}
+    {%- if section.settings.rtb_3_text != blank -%}
+    <p class="text-sm md:mt-3 md:text-base">
+      {{ section.settings.rtb_3_text | escape }}
     </p>
-    <img src="{{ 'tw_tools.94fe64ed.png' | asset_url }}" width="378" height="140" class="mt-5 mx-auto w-[189]">
+    {%- endif -%}
   </div>
-  <div class="md:basis-1/2 mt-5 p-5 text-center xl:basis-1/4">
-      <p class="font-medium text-5xl">
-        {{ section.settings.rtb_3_heading | escape }}
-      </p>
-      <p class="font-medium leading-8 uppercase">
-        {{ section.settings.rtb_3_label | escape }}
-      </p>
-      <p class="md:text-base text-sm">
-        {{ section.settings.rtb_3_text | escape }}
-      </p>
+  <div class="p-5 text-center md:mt-5 md:basis-1/2 lg:p-12 xl:basis-1/4 xl:p-5">
+    {%- if section.settings.rtb_4_heading != blank -%}
+    <p class="text-5xl font-medium tracking-wider">
+      {{ section.settings.rtb_4_heading | escape }}
+    </p>
+    {%- endif -%}
+    {%- if section.settings.rtb_4_label != blank -%}
+    <p class="font-medium uppercase leading-8 tracking-widest">
+      {{ section.settings.rtb_4_label | escape }}
+    </p>
+    {%- endif -%}
+    {%- if section.settings.rtb_4_text != blank -%}
+    <p class="text-sm md:mt-3 md:text-base">
+      {{ section.settings.rtb_4_text | escape }}
+    </p>
+    {%- endif -%}
   </div>
-  <div class="md:basis-1/2 md:mt-5 p-5 text-center xl:basis-1/4">
-      <p class="font-medium text-5xl">
-        {{ section.settings.rtb_4_heading | escape }}
-      </p>
-      <p class="font-medium leading-8 uppercase">
-        {{ section.settings.rtb_4_label | escape }}
-      </p>
-      <p class="md:text-base text-sm">
-        {{ section.settings.rtb_4_text | escape }}
-      </p>
+  <div class="p-5 text-center md:basis-1/2 lg:p-12 xl:mt-5 xl:basis-1/4 xl:p-5">
+    {%- if section.settings.rtb_5_heading != blank -%}
+    <p class="text-5xl font-medium tracking-wider">
+      {{ section.settings.rtb_5_heading | escape }}
+    </p>
+    {%- endif -%}
+    {%- if section.settings.rtb_5_label != blank -%}
+    <p class="font-medium uppercase leading-8 tracking-widest">
+      {{ section.settings.rtb_5_label | escape }}
+    </p>
+    {%- endif -%}
+    {%- if section.settings.rtb_5_text != blank -%}
+    <p class="text-sm md:mt-3 md:text-base">
+      {{ section.settings.rtb_5_text | escape }}
+    </p>
+    {%- endif -%}
   </div>
-  <div class="md:basis-1/2 p-5 text-center xl:basis-1/4 xl:mt-5">
-      <p class="font-medium text-5xl">
-        {{ section.settings.rtb_5_heading | escape }}
-      </p>
-      <p class="font-medium leading-8 uppercase">
-        {{ section.settings.rtb_5_label | escape }}
-      </p>
-      <p class="md:text-base text-sm">
-        {{ section.settings.rtb_5_text | escape }}
-      </p>
-  </div>
-  <div class="md:basis-1/2 p-5 text-center xl:basis-1/4 xl:mt-5">
-      <p class="font-medium text-5xl">
-        {{ section.settings.rtb_6_heading | escape }}
-      </p>
-      <p class="font-medium leading-8 uppercase">
-        {{ section.settings.rtb_6_label | escape }}
-      </p>
-      <p class="md:text-base text-sm">
-        {{ section.settings.rtb_6_text | escape }}
-      </p>
+  <div class="p-5 text-center md:basis-1/2 lg:p-12 xl:mt-5 xl:basis-1/4 xl:p-5">
+    {%- if section.settings.rtb_6_heading != blank -%}
+    <p class="text-5xl font-medium tracking-wider">
+      {{ section.settings.rtb_6_heading | escape }}
+    </p>
+    {%- endif -%}
+    {%- if section.settings.rtb_6_label != blank -%}
+    <p class="font-medium uppercase leading-8 tracking-widest">
+      {{ section.settings.rtb_6_label | escape }}
+    </p>
+    {%- endif -%}
+    {%- if section.settings.rtb_6_text != blank -%}
+    <p class="text-sm md:mt-3 md:text-base">
+      {{ section.settings.rtb_6_text | escape }}
+    </p>
+    {%- endif -%}
   </div>
 </div>
 {% schema %}
