@@ -171,7 +171,9 @@
               </div>
               <div class="basis-2/3">
                 <input name="id"  value="{{ variant.id }}" type="hidden" />
-                <input name="add" value="{{ section.settings.form_add_to_cart }}" type="submit" class="cursor-pointer w-full bg-c3 p-3 text-sm font-medium uppercase tracking-widest hover:bg-c4" />
+                <button name="add" type="submit" class="w-full bg-c3 p-3 text-sm font-medium uppercase tracking-widest hover:bg-c4">
+                  {{ section.settings.form_add_to_cart }}
+                </button>
               </div>
             </div>
           </form>
@@ -204,7 +206,9 @@
     <div class="absolute top-[15%] left-0 right-0 mx-auto hidden w-3/4 max-w-[250] space-y-5 tracking-wider group-hover:block">
       <form method="post" action="/cart/add">
         <input name="id"  value="{{ variant.id }}" type="hidden" />
-        <input name="add" value="{{ section.settings.form_add_to_cart }}" type="submit" class="cursor-pointer w-full bg-c5 p-3 text-sm font-medium uppercase tracking-wider text-c2 md:text-base" />
+        <button name="add" type="submit" class="cursor-pointer w-full bg-c5 p-3 text-sm font-medium uppercase tracking-wider text-c2 md:text-base">
+          {{ section.settings.form_add_to_cart }}
+        </button>
       </form>
       <button class="w-full bg-c5 p-3 text-sm tracking-wider text-c2 underline md:text-base lg:text-lg" onclick="taiwanway.showModal({{ variant.id }})">
         {{ section.settings.form_see_details }}
