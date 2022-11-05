@@ -1,18 +1,17 @@
-<div class="bg-c4 md:p-2 p-1 text-c5 text-center">
+<div class="bg-c4 p-1 text-center text-sm tracking-widest text-c5 md:p-2">
   {%- if section.settings.link != blank -%}
   <a href="{{ section.settings.link }}" class="link">
   {%- endif -%}
-  <span class="hidden md:inline">
+  <span class="hidden uppercase md:inline">
     {{ section.settings.text | escape }}
   </span>
-  <span class="md:hidden text-sm">
-    {{ section.settings.text | escape }}
+  <span class="md:hidden">
+    {{ section.settings.text_mobile | escape }}
   </span>
   {%- if section.settings.link != blank -%}
   </a>
   {%- endif -%}
 </div>
-
 {% schema %}
 {
   "name": "TW Announcement Bar",
@@ -22,6 +21,12 @@
       "id": "text",
       "default": "Free standard shipping within Canada for purchases of over $100",
       "label": "Announcement text"
+    },
+    {
+      "type": "text",
+      "id": "text_mobile",
+      "default": "Free standard shipping on all orders over $100",
+      "label": "Announcement Mobile text"
     },
     {
       "type": "url",

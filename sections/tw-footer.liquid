@@ -1,15 +1,15 @@
 <div class="bg-c3 md:text-base mt-5 pb-5 pt-10 text-xs">
   <div class="container mx-auto px-5">
     <div class="flex">
-      <div class="basis-[42px] flex-shrink-0">
-        <img src="{{ 'tw_white_logo.b6c64964.svg' | asset_url }}" width="42" height="90" alt="logo">
+      <div class="flex-shrink-0 basis-[42px] lg:basis-[70px]">
+        <img src="{{ 'tw_white_logo.f68c1b72.png' | asset_url }}" width="207" height="447" alt="logo">
       </div>
       <div class="basis-full md:flex md:items-center md:justify-between ml-5">
-        <div class="font-medium uppercase">
+        <div class="font-medium uppercase tracking-widest md:leading-7">
           {{ section.settings.rtb }}
         </div>
         <div class="md:flex md:flex-col-reverse">
-          <div class="font-medium md:mr-5 md:text-right mt-5 uppercase">
+          <div class="mt-5 font-medium uppercase tracking-wider md:mr-5 md:text-right">
             {{ section.settings.followus | escape }}
             <a href="https://www.facebook.com/TaiwanWaymarket/" class="group ml-4">
               <img class="group-hover:hidden inline" src="{{ 'tw_Facebook_black.ff310483.svg' | asset_url }}" width="7" height="15" alt="facebook">
@@ -21,7 +21,7 @@
             </a>
           </div>
           {%- if section.settings.menu != blank -%}
-            <div class="flex justify-center md:ml-0 md:mt-0 ml-[-42] mt-5">
+            <div class="mt-5 ml-[-42] flex justify-center tracking-wider md:ml-0 md:mt-0">
             {%- for link in section.settings.menu.links -%}
               {% if link.url contains '#' %}
                 {% assign anchor = link.url | replace: "#", "" %}
@@ -37,13 +37,13 @@
     </div>
   </div>
   {%- if section.settings.copyright != blank -%}
-    <div class="mt-5 text-center">
-      {{ section.settings.copyright | escape }}
+    <div class="mt-5 text-center md:container md:mx-auto md:pl-5 md:text-left">
+      <span class="mr-5 hidden md:inline-block md:w-[42px] lg:w-[70px]"></span>{{ section.settings.copyright | escape | trim }}
     </div>
   {%- endif -%}
 </div>
 <div class="bottom-0 cursor-pointer fixed hidden opacity-0 right-0 transition-opacity" onclick="taiwanway.scrollToElement('body')" id="back-to-top">
-  <img src="{{ 'tw_back_to_top.20234f1e.svg' | asset_url }}" width="68" height="68" alt="back to top" class="mx-auto">
+  <img src="{{ 'tw_back_to_top.699d9874.svg' | asset_url }}" width="68" height="68" alt="back to top" class="mx-auto">
   <p class="hidden lg:block pb-3 px-3 text-center">
     Back to Top
   </p>

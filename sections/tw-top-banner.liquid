@@ -1,23 +1,23 @@
 <div class="lg:bg-[length:723px] md:bg-[length:500px] md:bg-[right_50vw_bottom] md:bg-[url('static/ink_drawing.png')] md:bg-no-repeat">
   <div class="container mx-auto">
-    <div class="md:flex">
-        <div class="md:basis-1/2">
+    <div class="md:flex md:justify-between">
+        <div class="md:max-w-[450] md:basis-1/2">
           <img src="{{ 'tw_logo_vertical.0544ec1b.png' | asset_url }}" width="144" height="314" class="hidden md:block mx-5 w-[72]">
-          <h1 class="font-medium mb-3 md:text-left mt-7 mx-5 text-4xl text-center">
+          <h1 class="mx-5 mt-7 mb-3 text-center text-4xl tracking-wide md:text-left md:text-5xl">
             {{ section.settings.heading_1 | escape }}
           </h1>
-          <p class="md:text-left mx-5 text-center">
+          <p class="mx-5 text-center tracking-wider md:text-left md:text-xl">
             {{ section.settings.description_1 | escape }} 
           </p>
         </div>
         <div class="bg-[length:376px] bg-[url('static/main_image_bg.png')] bg-bottom bg-no-repeat md:basis-1/2 md:bg-[length:540px] md:bg-none md:mb-32 md:mt-40 mt-5">
           <div class="max-w-[336] md:max-w-[500] mx-auto relative">
             <img src="{{ 'tw_main_image.769e571a.png' | asset_url }}" width="672" height="928" class="max-w-[336] md:max-w-[500] w-full">
-              <div class="absolute left-0 lg:text-lg lg:top-[390] lg:w-[350] md:text-sm md:top-[290] md:w-[280] mx-auto right-0 text-c4 text-xs top-[260] w-[250]">
-                <p class="font-medium leading-5 lg:leading-7 md:leading-6 uppercase">
+              <div class="absolute top-[260] left-0 right-0 mx-auto w-[250] text-c4 md:top-[295] md:w-[280] lg:top-[400] lg:w-[350]">
+                <p class="text-xs font-medium uppercase leading-5 tracking-widest md:text-sm md:leading-6 lg:text-lg lg:leading-7">
                   {{ section.settings.heading_2 | escape }} 
                 </p>
-                <p class="leading-4 lg:leading-6 md:leading-5">
+                <p class="mt-3 text-xs leading-4 md:text-sm md:leading-5 lg:text-base lg:leading-6">
                   {{ section.settings.description_2 | escape }} 
                 </p>
               </div>
@@ -26,23 +26,23 @@
     </div>
   </div>
 </div>
-<div class="container mx-auto my-10">
-  <div class="flex flex-wrap font-medium m-3 md:text-base text-xs">
-    <div class="align-middle basis-1/2 flex items-center justify-items-start lg:flex-row lg:items-center md:basis-1/4 md:flex-col md:items-start">
-      <img src="{{ 'tw_meat_icon.99bb639b.svg' | asset_url }}" width="52" height="36" class="basis-[55px] block flex-shrink-0 m-2">
-      <p class="m-2 uppercase">{{ section.settings.rtb_1 | escape }}</p>
+<div class="container mx-auto my-10 md:my-16">
+  <div class="m-3 flex flex-wrap text-xs font-medium md:text-base md:tracking-wider xl:text-lg">
+    <div class="flex basis-1/2 items-center justify-items-start align-middle md:basis-1/4 md:flex-col md:items-start md:justify-end lg:flex-row lg:items-center">
+      <img src="{{ 'tw_meat_icon.99bb639b.svg' | asset_url }}" width="52" height="36" class="m-2 block aspect-square w-auto flex-shrink-0 basis-[50px] object-contain md:h-[50px] md:basis-auto lg:basis-[75px] xl:h-[60px]">
+      <p class="m-2 uppercase tracking-wider">{{ section.settings.rtb_1 | escape }}</p>
     </div>
-    <div class=":flex-row align-middle basis-1/2 flex items-center justify-items-start lg:flex-row lg:items-center md:basis-1/4 md:flex-col md:items-start">
-      <img src="{{ 'tw_maple_leaf_icon.0d8cf143.svg' | asset_url }}" width="44" height="49" class="basis-[55px] block flex-shrink-0 m-2">
-      <p class="m-2 uppercase">{{ section.settings.rtb_2 | escape }}</p></p>
+    <div class=":flex-row flex basis-1/2 items-center justify-items-start align-middle md:basis-1/4 md:flex-col md:items-start md:justify-end lg:flex-row lg:items-center">
+      <img src="{{ 'tw_maple_leaf_icon.0d8cf143.svg' | asset_url }}" width="44" height="49" class="m-2 block aspect-square w-auto flex-shrink-0 basis-[50px] object-contain md:h-[50px] md:basis-auto lg:basis-[75px] xl:h-[60px]">
+      <p class="m-2 uppercase tracking-wider">{{ section.settings.rtb_2 | escape }}</p>
     </div>
-    <div class="align-middle basis-1/2 flex items-center justify-items-start lg:flex-row lg:items-center md:basis-1/4 md:flex-col md:items-start">
-      <img src="{{ 'tw_sausage_icon.b9da58e7.svg' | asset_url }}" width="42" height="39" class="basis-[55px] block flex-shrink-0 m-2">
-      <p class="m-2 uppercase">{{ section.settings.rtb_3 | escape }}</p></p>
+    <div class="flex basis-1/2 items-center justify-items-start align-middle md:basis-1/4 md:flex-col md:items-start md:justify-end lg:flex-row lg:items-center">
+      <img src="{{ 'tw_sausage_icon.b9da58e7.svg' | asset_url }}" width="42" height="39" class="m-2 block aspect-square w-auto flex-shrink-0 basis-[50px] object-contain md:h-[50px] md:basis-auto lg:basis-[75px] xl:h-[60px]">
+      <p class="m-2 uppercase tracking-wider">{{ section.settings.rtb_3 | escape }}</p>
     </div>
-    <div class="align-middle basis-1/2 flex items-center justify-items-start lg:flex-row lg:items-center md:basis-1/4 md:flex-col md:items-start">
-      <img src="{{ 'tw_no_preservatives_icon.167f4c77.svg' | asset_url }}" width="31" height="36" class="basis-[55px] block flex-shrink-0 m-2">
-      <p class="m-2 uppercase">{{ section.settings.rtb_4 | escape }}</p></p>
+    <div class="flex basis-1/2 items-center justify-items-start align-middle md:basis-1/4 md:flex-col md:items-start md:justify-end lg:flex-row lg:items-center">
+      <img src="{{ 'tw_no_preservatives_icon.167f4c77.svg' | asset_url }}" width="31" height="36" class="m-2 block aspect-square w-auto flex-shrink-0 basis-[50px] object-contain md:h-[50px] md:basis-auto lg:basis-[75px] xl:h-[60px]">
+      <p class="m-2 uppercase tracking-wider">{{ section.settings.rtb_4 | escape }}</p>
     </div>
   </div>
 </div>
