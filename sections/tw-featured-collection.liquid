@@ -10,7 +10,7 @@
   assign add_to_cart_url = '/cart/add'
 
   if request.locale.root_url != '/'
-    add_to_cart_url = request.locale.root_url | append: add_to_cart_url
+    assign add_to_cart_url = request.locale.root_url | append: add_to_cart_url
   endif
 
   for product in products
@@ -215,7 +215,7 @@
         </button>
       </form>
     </div>
-    <div class="flex cursor-pointer flex-col justify-between px-2.5 py-5" data-product-type="{{ product.type | replace: " ", "_" }}" onclick="taiwanway.showModal({{ id }})">
+    <div class="flex cursor-pointer flex-col justify-between px-2.5 py-5" data-product-type="{{ product.type | replace: " ", "_" }}" onclick="taiwanway.showModal({{ variant.id }})">
       <img class="mx-auto mb-5" src="{{ product_img }}" />
       <div class="text-sm md:text-base">
         <p class="text-center font-medium uppercase tracking-widest">{{ product.title }}</p>
